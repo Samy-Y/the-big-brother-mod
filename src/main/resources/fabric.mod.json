@@ -3,13 +3,13 @@
 	"id": "the-big-brother-mod",
 	"version": "${version}",
 	"name": "The Big Brother Mod",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Establish a glorious state and rule over villagers, in Minecraft!",
 	"authors": [
-		"Me!"
+		"Samy"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/Samy-Y/the-big-brother-mod"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/the-big-brother-mod/icon.png",
