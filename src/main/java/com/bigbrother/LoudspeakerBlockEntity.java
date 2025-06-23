@@ -15,10 +15,15 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
 public class LoudspeakerBlockEntity extends BlockEntity implements BlockEntityTicker<LoudspeakerBlockEntity> {
+
+    private String MOD_ID = "the-big-brother-mod";
+    private Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
     private static int isPlaying;
 
@@ -67,7 +72,14 @@ public class LoudspeakerBlockEntity extends BlockEntity implements BlockEntityTi
     @Override
     public void tick(World world, BlockPos pos, BlockState state, LoudspeakerBlockEntity be) {
         isPlaying++;
-        if (isPlaying == 1) world.playSound(null,pos,ModSounds.LOUDSPEAKER, SoundCategory.AMBIENT, 1f, 1f);
+        // this is probably the worst implementation of a sound loop, ever.
+        int time = isPlaying - 1;
+        LOGGER.info("Tick: " + time);
+        if (time % 320 == 0) {
+            world.playSound(null,pos,ModSounds.LOUDSPEAKER, SoundCategory.AMBIENT, 1f, 1f);
+
+            LOGGER.info("Loudspeaker at " + pos + " is playing!");
+        }
         if (world.isClient()) return; // server side only
 
         Box area = new Box(pos).expand(RADIUS);
