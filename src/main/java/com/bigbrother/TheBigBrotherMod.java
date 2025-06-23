@@ -10,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
@@ -42,6 +43,8 @@ public class TheBigBrotherMod implements ModInitializer {
 		// Proceed with mild caution.
 		ModItems.initialize();
 		ModBlocks.initialize();
+		ModBlockEntities.initialize();
+		ModSounds.initialize();
 		// Register the item/block groups.
 		Registry.register(Registries.ITEM_GROUP, TBBMBLOCKS_KEY, TBBMBLOCKS);
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS)

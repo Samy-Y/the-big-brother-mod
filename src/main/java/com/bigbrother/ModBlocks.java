@@ -48,7 +48,7 @@ public class ModBlocks {
 
     public static final Block LOUDSPEAKER = register(
             "loudspeaker",
-            Block::new,
+            LoudspeakerBlock::new,
             AbstractBlock.Settings.create().sounds(BlockSoundGroup.STONE),
             true
     );
