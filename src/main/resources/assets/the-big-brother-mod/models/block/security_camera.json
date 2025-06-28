@@ -1,0 +1,21 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "side":  "the-big-brother-mod:block/security_camera_side",
+    "front": "the-big-brother-mod:block/security_camera_front"
+  },
+  "elements": [
+    {
+      "from": [6, 6, 8],
+      "to":   [10, 10, 16],
+      "faces": {
+        "north": {"uv":[6,6,10,10],"texture":"#front"},
+        "south": {"uv":[6,6,10,10],"texture":"#side"},
+        "west":  {"uv":[8,6,16,10],"texture":"#side"},
+        "east":  {"uv":[8,6,16,10],"texture":"#side"},
+        "up":    {"uv":[6,8,10,16],"texture":"#side"},
+        "down":  {"uv":[6,8,10,16],"texture":"#side"}
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "textures": {
+    "layer0": "the-big-brother-mod:entity/militia_villager"
+  },
+  "parent": "minecraft:entity/villager/villager"
+}
+

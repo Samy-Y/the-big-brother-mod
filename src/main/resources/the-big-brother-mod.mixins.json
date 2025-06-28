@@ -2,8 +2,12 @@
 	"required": true,
 	"package": "com.bigbrother.mixin",
 	"compatibilityLevel": "JAVA_21",
+	"refmap": "the-big-brother-mod.refmap.json",
 	"mixins": [
-		"ExampleMixin"
+		"LivingEntityMixin",
+		"VillagerEntityMixin",
+		"MobEntityAccessor",
+		"WorldMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

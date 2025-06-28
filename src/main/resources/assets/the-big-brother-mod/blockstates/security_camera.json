@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "the-big-brother-mod:block/security_camera", "y":   0 },
+    "facing=south": { "model": "the-big-brother-mod:block/security_camera", "y": 180 },
+    "facing=west":  { "model": "the-big-brother-mod:block/security_camera", "y": 270 },
+    "facing=east":  { "model": "the-big-brother-mod:block/security_camera", "y":  90 }
+  }
+}

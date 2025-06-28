@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:armor_stand",
+  "client": {
+    "model": "the-big-brother-mod:entity/militia_villager",
+    "texture": "the-big-brother-mod:textures/entity/militia_villager.png"
+  }
+}
+

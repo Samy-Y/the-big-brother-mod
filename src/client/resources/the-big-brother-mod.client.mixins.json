@@ -1,9 +1,12 @@
 {
 	"required": true,
+	"minVersion": "0.8",
 	"package": "com.bigbrother.mixin.client",
 	"compatibilityLevel": "JAVA_21",
+	"refmap": "the-big-brother-mod-client.refmap.json",
 	"client": [
-		"ExampleClientMixin"
+		"ExampleClientMixin",
+		"InGameHudMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

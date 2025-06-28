@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "the-big-brother-mod:block/player_bust"
+    },
+    "facing=south": {
+      "model": "the-big-brother-mod:block/player_bust",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "the-big-brother-mod:block/player_bust",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "the-big-brother-mod:block/player_bust",
+      "y": 90
+    }
+  }
+}

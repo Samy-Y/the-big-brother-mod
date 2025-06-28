@@ -1,5 +1,6 @@
-package com.bigbrother;
+package com.bigbrother.loudspeaker;
 
+import com.bigbrother.ModBlockEntities;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;

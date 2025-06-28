@@ -1,9 +1,14 @@
 package com.bigbrother;
 
+import com.bigbrother.mixin.MobEntityAccessor;
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.entity.ai.goal.GoalSelector;
+import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.ItemStack;
@@ -15,6 +20,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 
 import static net.minecraft.item.Items.register;
 
@@ -45,12 +51,40 @@ public class TheBigBrotherMod implements ModInitializer {
 		ModBlocks.initialize();
 		ModBlockEntities.initialize();
 		ModSounds.initialize();
+		ModEntities.initialize();
 		// Register the item/block groups.
 		Registry.register(Registries.ITEM_GROUP, TBBMBLOCKS_KEY, TBBMBLOCKS);
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS)
 				.register((itemGroup) -> itemGroup.add(ModItems.MONEY));
 		ItemGroupEvents.modifyEntriesEvent(TBBMBLOCKS_KEY).register(itemGroup -> {
 			itemGroup.add(ModBlocks.LOUDSPEAKER);
+		});
+		ItemGroupEvents.modifyEntriesEvent(TBBMBLOCKS_KEY).register(itemGroup -> {
+			itemGroup.add(ModBlocks.SECURITY_CAMERA);
+		});
+		ItemGroupEvents.modifyEntriesEvent(TBBMBLOCKS_KEY).register(itemGroup -> {
+			itemGroup.add(ModBlocks.PLAYER_BUST);
+		});
+		ItemGroupEvents.modifyEntriesEvent(TBBMBLOCKS_KEY).register(itemGroup -> {
+			itemGroup.add(ModBlocks.PROPAGANDA_POSTER);
+		});
+
+		FabricDefaultAttributeRegistry.register(
+				ModEntities.MILITIA_VILLAGER,
+				VillagerEntity.createLivingAttributes()
+						.add(EntityAttributes.MAX_HEALTH, 20.0)
+						.add(EntityAttributes.MOVEMENT_SPEED, 0.3)
+						.add(EntityAttributes.ATTACK_DAMAGE, 2.0)
+						.add(EntityAttributes.FOLLOW_RANGE, 16.0)
+		);
+
+
+
+		ServerEntityEvents.ENTITY_LOAD.register((entity, world) -> {
+			if (entity instanceof VillagerEntity villager) {
+				GoalSelector goalSelector = ((MobEntityAccessor) villager).getGoalSelector();
+				goalSelector.add(1, new FollowEmeraldPlayerGoal(villager, 1.0, 10.0, 2.0));
+			}
 		});
 
 

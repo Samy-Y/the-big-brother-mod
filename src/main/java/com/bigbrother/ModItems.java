@@ -28,6 +28,7 @@ public class ModItems {
         // stays empty
     }
     public static final Item MONEY = register("money", Item::new, new Item.Settings());
+
 }
 
 

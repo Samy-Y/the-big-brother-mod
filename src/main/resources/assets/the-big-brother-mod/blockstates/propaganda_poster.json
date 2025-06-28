@@ -1,0 +1,35 @@
+{
+  "variants": {
+    "facing=east,half=lower": {
+      "model": "the-big-brother-mod:block/propaganda_poster_bottom",
+      "y": 90
+    },
+    "facing=east,half=upper": {
+      "model": "the-big-brother-mod:block/propaganda_poster_top",
+      "y": 90
+    },
+    "facing=north,half=lower": {
+      "model": "the-big-brother-mod:block/propaganda_poster_bottom"
+    },
+    "facing=north,half=upper": {
+      "model": "the-big-brother-mod:block/propaganda_poster_top"
+    },
+    "facing=south,half=lower": {
+      "model": "the-big-brother-mod:block/propaganda_poster_bottom",
+      "y": 180
+    },
+    "facing=south,half=upper": {
+      "model": "the-big-brother-mod:block/propaganda_poster_top",
+      "y": 180
+    },
+    "facing=west,half=lower": {
+      "model": "the-big-brother-mod:block/propaganda_poster_bottom",
+      "y": 270
+    },
+    "facing=west,half=upper": {
+      "model": "the-big-brother-mod:block/propaganda_poster_top",
+      "y": 270
+    }
+  }
+}
+
