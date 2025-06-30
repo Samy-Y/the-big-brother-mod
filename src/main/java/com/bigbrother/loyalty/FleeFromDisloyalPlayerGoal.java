@@ -1,5 +1,6 @@
 package com.bigbrother.loyalty;
 
+import com.bigbrother.mixin.MobEntityAccessor;
 import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -27,6 +28,11 @@ public class FleeFromDisloyalPlayerGoal extends Goal {
 
         // Check if villager should run from this player due to low loyalty
         if (LoyaltyManager.shouldRunFromPlayer(villager, nearestPlayer.getUuid())) {
+            // Don't flee if sneak up goal is active (higher priority)
+            if (isSneakUpGoalActive()) {
+                return false;
+            }
+
             this.targetPlayer = nearestPlayer;
             return true;
         }
@@ -38,9 +44,22 @@ public class FleeFromDisloyalPlayerGoal extends Goal {
     public boolean shouldContinue() {
         if (targetPlayer == null) return false;
 
+        // Stop fleeing if sneak up goal becomes active
+        if (isSneakUpGoalActive()) {
+            return false;
+        }
+
         // Continue fleeing if player is still close and loyalty is still low
         return villager.squaredDistanceTo(targetPlayer) < fleeDistance * fleeDistance &&
                LoyaltyManager.shouldRunFromPlayer(villager, targetPlayer.getUuid());
+    }
+
+    private boolean isSneakUpGoalActive() {
+        // Check if any sneak up goal is currently running
+        MobEntityAccessor mobAccessor = (MobEntityAccessor) villager;
+        return mobAccessor.getGoalSelector().getGoals().stream()
+            .anyMatch(goal -> goal.getGoal() instanceof SneakUpAndAttackPlayerGoal &&
+                     goal.isRunning());
     }
 
     @Override

@@ -4,5 +4,12 @@
   "item.the-big-brother-mod.loudspeaker": "Loudspeaker",
   "item.the-big-brother-mod.security_camera": "Security Camera",
   "item.the-big-brother-mod.player_bust": "Player Bust",
-  "block.the-big-brother-mod.propaganda_poster": "Propaganda Poster"
+  "item.the-big-brother-mod.propaganda_poster": "Propaganda Poster",
+  "item.the-big-brother-mod.fake_villager": "Fake Villager",
+  "block.the-big-brother-mod.loudspeaker": "Loudspeaker",
+  "block.the-big-brother-mod.security_camera": "Security Camera",
+  "block.the-big-brother-mod.player_bust": "Player Bust",
+  "block.the-big-brother-mod.propaganda_poster": "Propaganda Poster",
+  "block.the-big-brother-mod.fake_villager": "Fake Villager",
+  "entity.the-big-brother-mod.militia_villager": "Militia Villager"
 }

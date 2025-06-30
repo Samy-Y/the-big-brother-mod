@@ -2,6 +2,7 @@ package com.bigbrother;
 
 import com.bigbrother.bust.PlayerBustBlock;
 import com.bigbrother.camera.SecurityCameraBlock;
+import com.bigbrother.fakevillager.FakeVillagerBlock;
 import com.bigbrother.loudspeaker.LoudspeakerBlock;
 import com.bigbrother.propaganda.PropagandaPosterBlock;
 import net.minecraft.block.AbstractBlock;
@@ -79,6 +80,13 @@ public class ModBlocks {
             "propaganda_poster",
             PropagandaPosterBlock::new,
             AbstractBlock.Settings.create().sounds(BlockSoundGroup.WOOD),
+            true
+    );
+
+    public static final Block FAKE_VILLAGER = register(
+            "fake_villager",
+            FakeVillagerBlock::new,
+            AbstractBlock.Settings.create().sounds(BlockSoundGroup.STONE),
             true
     );
 

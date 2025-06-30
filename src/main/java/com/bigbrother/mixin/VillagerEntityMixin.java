@@ -2,6 +2,7 @@ package com.bigbrother.mixin;
 
 import com.bigbrother.loyalty.FleeFromDisloyalPlayerGoal;
 import com.bigbrother.loyalty.LoyaltyManager;
+import com.bigbrother.loyalty.SneakUpAndAttackPlayerGoal;
 import net.minecraft.entity.ai.goal.GoalSelector;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.VillagerEntity;
@@ -24,14 +25,21 @@ public class VillagerEntityMixin {
         VillagerEntity villager = (VillagerEntity) (Object) this;
         LoyaltyManager.tickVillagerLoyalty(villager);
 
-        // Add flee goal if not already present - use accessor to access goalSelector
+        // Add flee and sneak up goals if not already present - use accessor to access goalSelector
         MobEntityAccessor mobAccessor = (MobEntityAccessor) villager;
         GoalSelector goalSelector = mobAccessor.getGoalSelector();
+
         boolean hasFleeGoal = goalSelector.getGoals().stream()
             .anyMatch(goal -> goal.getGoal() instanceof FleeFromDisloyalPlayerGoal);
+        boolean hasSneakUpGoal = goalSelector.getGoals().stream()
+            .anyMatch(goal -> goal.getGoal() instanceof SneakUpAndAttackPlayerGoal);
 
         if (!hasFleeGoal) {
-            goalSelector.add(1, new FleeFromDisloyalPlayerGoal(villager, 16.0, 1.5));
+            goalSelector.add(3, new FleeFromDisloyalPlayerGoal(villager, 16.0, 1.5));
+        }
+
+        if (!hasSneakUpGoal) {
+            goalSelector.add(2, new SneakUpAndAttackPlayerGoal(villager, 16.0, 1.2));
         }
     }
 

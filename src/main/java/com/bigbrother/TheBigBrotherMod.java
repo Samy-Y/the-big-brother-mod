@@ -1,6 +1,7 @@
 package com.bigbrother;
 
 import com.bigbrother.mixin.MobEntityAccessor;
+import com.bigbrother.village.VillageChunkHandler;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
@@ -52,6 +53,10 @@ public class TheBigBrotherMod implements ModInitializer {
 		ModBlockEntities.initialize();
 		ModSounds.initialize();
 		ModEntities.initialize();
+
+		// Initialize village militia spawning system
+		VillageChunkHandler.initialize();
+
 		// Register the item/block groups.
 		Registry.register(Registries.ITEM_GROUP, TBBMBLOCKS_KEY, TBBMBLOCKS);
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS)

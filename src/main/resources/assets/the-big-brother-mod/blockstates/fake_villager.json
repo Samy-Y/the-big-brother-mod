@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "the-big-brother-mod:block/fake_villager"
+    },
+    "facing=south": {
+      "model": "the-big-brother-mod:block/fake_villager",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "the-big-brother-mod:block/fake_villager",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "the-big-brother-mod:block/fake_villager",
+      "y": 90
+    }
+  }
+}
+

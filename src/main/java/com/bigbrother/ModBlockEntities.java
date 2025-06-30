@@ -2,6 +2,7 @@ package com.bigbrother;
 
 import com.bigbrother.bust.PlayerBustBlockEntity;
 import com.bigbrother.camera.SecurityCameraBlockEntity;
+import com.bigbrother.fakevillager.FakeVillagerBlockEntity;
 import com.bigbrother.loudspeaker.LoudspeakerBlockEntity;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.entity.BlockEntityType;
@@ -36,6 +37,11 @@ public class ModBlockEntities {
             FabricBlockEntityTypeBuilder
                     .create(PlayerBustBlockEntity::new, ModBlocks.PLAYER_BUST)
                     .build()
+    );
+
+    public static final BlockEntityType<FakeVillagerBlockEntity> FAKE_VILLAGER = register(
+            "fake_villager",
+            FabricBlockEntityTypeBuilder.create(FakeVillagerBlockEntity::new, ModBlocks.FAKE_VILLAGER).build()
     );
 
 }
