@@ -13,4 +13,4 @@ The mod you never knew your villagers needed. Now featuring 120% more propaganda
 # Future plans
 Planning a few more meme-ish features before calling it V1.0. Probably singleplayer-only for now. Ideas always welcome, ping me on Slack (same pfp).
 
-Project originally started for Hackclub's 2025 Summer Of Making event!
+*Project originally started for Hackclub's 2025 Summer Of Making event!*
