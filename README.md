@@ -11,6 +11,9 @@ The mod you never knew your villagers needed. Now featuring 120% more propaganda
 - **❌ Fake Villager:** A decoy villager that can render villagers very aggressive.
 
 # Future plans
-Planning a few more meme-ish features before calling it V1.0. Probably singleplayer-only for now. Ideas always welcome, ping me on Slack (same pfp).
+Planning another entirely fresh mod with AI villagers. Don't expect updates!
+
+# Installation
+Download release 1.0 from the releases tab. Do I really have to explain you how to install a Minecraft mod?
 
 *Project originally started for Hackclub's 2025 Summer Of Making event!*
